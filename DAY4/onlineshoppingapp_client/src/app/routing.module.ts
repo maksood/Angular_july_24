@@ -8,6 +8,8 @@ import { CartitemsComponent } from "./components/cart/cartitems/cartitems.compon
 import { TemplatedrivennewproductComponent } from "./components/forms/templatedrivennewproduct/templatedrivennewproduct.component";
 import { ModeldrivennewproductComponent } from "./components/forms/modeldrivennewproduct/modeldrivennewproduct.component";
 import { DashboardComponent } from "./components/dashboard/dashboard.component";
+import { LoginComponent } from "./components/login/login.component";
+import { authGuard } from "./gaurd/auth.guard";
 
 // const routes: Routes = [
 //   {
@@ -37,9 +39,11 @@ import { DashboardComponent } from "./components/dashboard/dashboard.component";
 // ];
 
 const routes: Routes = [
+  { path: "", component: LoginComponent },
   {
     path: "dashboard",
     component: DashboardComponent,
+    canActivate: [authGuard],
     children: [
       {
         path: "",
@@ -67,7 +71,7 @@ const routes: Routes = [
       },
     ],
   },
-  { path: "**", redirectTo: "/dashboard" },
+  { path: "**", redirectTo: "/" },
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

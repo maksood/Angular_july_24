@@ -20,7 +20,9 @@ import { CartService } from "./services/cartservice";
 import { CartitemsComponent } from "./components/cart/cartitems/cartitems.component";
 import { TemplatedrivennewproductComponent } from "./components/forms/templatedrivennewproduct/templatedrivennewproduct.component";
 import { ModeldrivennewproductComponent } from "./components/forms/modeldrivennewproduct/modeldrivennewproduct.component";
-import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { DashboardComponent } from "./components/dashboard/dashboard.component";
+import { LoginComponent } from "./components/login/login.component";
+import { UserService } from "./services/userservice.service";
 
 @NgModule({
   declarations: [
@@ -39,6 +41,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
     TemplatedrivennewproductComponent,
     ModeldrivennewproductComponent,
     DashboardComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -47,7 +50,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
     AppRoutingModule,
     ReactiveFormsModule,
   ],
-  providers: [ProductService, CartService],
+  providers: [ProductService, CartService, UserService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
