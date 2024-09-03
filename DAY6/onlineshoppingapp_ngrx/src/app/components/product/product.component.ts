@@ -1,5 +1,7 @@
 import { Component, Input } from '@angular/core';
+import { Store } from '@ngrx/store';
 import { ProductModel } from 'src/models/product.model';
+import { incrementLikes } from 'src/ngrx/actions/products.actions';
 
 @Component({
   selector: 'app-product',
@@ -16,4 +18,12 @@ export class ProductComponent {
     '',
     ''
   );
+
+  constructor(public store: Store<{ products: ProductModel[] }>) {}
+
+ 
+
+  IncrementLikes() {
+    this.store.dispatch(incrementLikes(this.productdetails.id));
+  }
 }
